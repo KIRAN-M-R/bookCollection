@@ -4,7 +4,7 @@ import FileBase from 'react-file-base64'
 const Form = () => {
 
     const [bookData, setBookData] = useState({
-        bookName: '', author: '', bookCode: '', genre: '', image: ''
+        bookName: '', author: '', price: '', genre: '', image: ''
     })
 
     const handleSubmit = (e) => {
@@ -29,10 +29,10 @@ const Form = () => {
       <input onChange={(e)=>setBookData({...bookData, author: e.target.value})} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="author" type="text" placeholder="Author"/>
     </div>
     <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" for="bookcode">
-        Book Code
+      <label className="block text-gray-700 text-sm font-bold mb-2" for="price">
+      Price
       </label>
-      <input onChange={(e)=>setBookData({...bookData, bookCode: e.target.value})} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="bookcode" type="text" placeholder="Book Code"/>
+      <input onChange={(e)=>setBookData({...bookData, price: e.target.value})} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="number" placeholder="Price"/>
     </div>
     <div className="mb-4">
       <label className="block text-gray-700 text-sm font-bold mb-2" for="genre">
