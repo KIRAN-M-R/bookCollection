@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getBooks } from "../../Api";
 
 const Posts = ({ state, setState}) => {
-  let postToPass;
+  
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     getBooks()

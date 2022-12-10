@@ -14,7 +14,7 @@ const Form = ({state, setState}) => {
 
     const handleSubmit = async (e) => {
       e.preventDefault()
-      if(currentId==0){
+      if(!currentId){
         addBook(bookData)
         clear()
         console.log(bookData);
