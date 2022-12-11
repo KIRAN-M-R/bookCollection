@@ -13,15 +13,15 @@ const handleDelete = ()=>{
 deleteBook(post._id)
 }
   return (
-    <div class="max-w-sm rounded bg-white m-5 overflow-hidden shadow-lg">
-      <img class="w-72 h-48" src={post.image} alt="Sunset in the mountains" />
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{post.bookName}</div>
-        <p class="text-gray-700 text-base">{post.author}</p>
-        <p class="text-gray-700 text-base">{post.price}</p>
-        <p class="text-gray-700 text-base">{post.genre}</p>
+    <div className="max-w-sm rounded bg-white m-5 overflow-hidden shadow-lg">
+      <img className="w-72 h-48" src={post.image} alt="Sunset in the mountains" />
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{post.bookName}</div>
+        <p className="text-gray-700 text-base">{post.author}</p>
+        <p className="text-gray-700 text-base">{post.price}</p>
+        <p className="text-gray-700 text-base">{post.genre}</p>
       </div>
-      <div class="px-6 pt-4 pb-2 flex flex-row justify-between">
+      <div className="px-6 pt-4 pb-2 flex flex-row justify-between">
         <button onClick={handleEdit}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
