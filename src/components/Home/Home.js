@@ -8,12 +8,18 @@ import Posts from "../Posts/Posts";
 const Home = () => {
   //const [currentId, setCurrentId] = useState()
   const [state, setState] = useState({});
+  const [newPost, setNewPost] = useState({});
   const [searchResults, setSearchResults] = useState();
   const updateSearchResults = (temp) => {
     setSearchResults(temp);
     console.log("tempeie" + JSON.stringify(temp));
     console.log(searchResults);
   };
+
+const refreshPost = (refreshData)=>{
+setNewPost(refreshData)
+}
+
   useEffect(() => {
     console.log(searchResults);
   }, [searchResults]);
@@ -26,11 +32,12 @@ const Home = () => {
             state={state}
             setState={setState}
             searchResults={searchResults}
+            newPost={newPost}
           />
         </div>
         <div className="bg-green-600 w-1/4">
           <SearchBook updateSearchResults={updateSearchResults} />
-          <Form state={state} setState={setState} />
+          <Form state={state} setState={setState} refreshPost={refreshPost} />
         </div>
       </div>
     </div>

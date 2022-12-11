@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 import { useState, useEffect } from "react";
 import { getBooks } from "../../Api";
 
-const Posts = ({ state, setState, searchResults}) => {
+const Posts = ({ state, setState, searchResults, newPost}) => {
   //const [test, setTest] = useState([{bookName:'bookee', author: 'authee', price:200, genre: "genee", image:""}])
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -14,13 +14,17 @@ const Posts = ({ state, setState, searchResults}) => {
         return data;
       })
       .then((data) => {
-        setPosts(data);
-        
-        console.log(data);
+      
+          setPosts(data);
+          console.log(data);   
       });
       
-  }, []);
-
+  }, [newPost]);
+/* useEffect(()=>{
+  if(newPost){
+setPosts((p)
+  }
+},[newPost]) */
 
   return (<>
   {(!searchResults)?(<div className="flex flex-row">

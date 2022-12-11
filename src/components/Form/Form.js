@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { addBook, updateBook } from '../../Api'
 import FileBase from 'react-file-base64'
-const Form = ({state, setState}) => {
+const Form = ({state, setState, refreshPost}) => {
 
     const [bookData, setBookData] = useState({
         bookName: '', author: '', price: '', genre: '', image: ''
@@ -10,28 +10,39 @@ const Form = ({state, setState}) => {
     useEffect(()=>{
       setCurrentId(state._id)
       setBookData(state)
+      
     },[state])
 
     const handleSubmit = async (e) => {
       e.preventDefault()
       if(!currentId){
-        addBook(bookData)
-        clear()
-        console.log(bookData);
+        addBook(bookData).then(()=>{
+          clear()
+          console.log(bookData);
+        })
+        
       }else{
         console.log(bookData)
-        await setBookData(updateBook(currentId, bookData))
-        setState(bookData)
-        clear()
+        updateBook(currentId, bookData).then((temp)=>{
+          setBookData(temp)
+          console.log(temp);
+          setState(bookData)
+          refreshPost(temp)
+          clear()
+        })
+        
       }
         
         
     }
     const clear = ()=>{
       setCurrentId(null)
-      setBookData({
-        title:'',message:'',tags: '',selectedFiles:''
+      setState({
+        bookName: '', author: '', price: '', genre: '', image: ''
     })
+      /* setBookData({
+        bookName: '', author: '', price: '', genre: '', image: ''
+    }) */
   }
 
   return (
