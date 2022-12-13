@@ -5,11 +5,13 @@ import SearchBook from "../SearchBook/SearchBook";
 import "./Home.css";
 import Posts from "../Posts/Posts";
 
+
 const Home = () => {
   //const [currentId, setCurrentId] = useState()
   const [state, setState] = useState({});
   const [newPost, setNewPost] = useState({});
   const [searchResults, setSearchResults] = useState();
+  
   const updateSearchResults = (temp) => {
     setSearchResults(temp);
     console.log("tempeie" + JSON.stringify(temp));
@@ -20,9 +22,10 @@ const refreshPost = (refreshData)=>{
 setNewPost(refreshData)
 }
 
-  useEffect(() => {
-    console.log(searchResults);
-  }, [searchResults]);
+
+  // useEffect(() => {
+  //   console.log(searchResults);
+  // }, [searchResults]);
   return (
     <div className="relative ">
       <Navbar />
