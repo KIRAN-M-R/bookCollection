@@ -1,7 +1,7 @@
 import axios from 'axios';
-
-export const addBook = (newBook) => axios.post('http://localhost:5000/books', newBook);
-export const getBooks = () => axios.get('http://localhost:5000/books');
-export const updateBook = (id, updatedBook) => axios.patch(`http://localhost:5000/books/${id}`, updatedBook);
-export const deleteBook = (id) => axios.delete(`http://localhost:5000/books/${id}`);
-export const getBookBySearch = (search) => axios.get(`http://localhost:5000/books/search?searchQuery=${search}`);
+const BASE_URL = "http://localhost:5000";
+export const addBook = (newBook) => axios.post(`${BASE_URL}/books`, newBook);
+export const getBooks = () => axios.get(`${BASE_URL}/books`);
+export const updateBook = (id, updatedBook) => axios.patch(`${BASE_URL}/books/${id}`, updatedBook);
+export const deleteBook = (id) => axios.delete(`${BASE_URL}/books/${id}`);
+export const getBookBySearch = (search) => axios.get(`${BASE_URL}/books/search?searchQuery=${search}`);
