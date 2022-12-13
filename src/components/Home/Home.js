@@ -26,8 +26,8 @@ setNewPost(refreshData)
   return (
     <div className="relative ">
       <Navbar />
-      <div className="flex flex-row fixed bg-slate-800 h-screen top-14 left-0 right-0">
-        <div className="flex flex-col w-3/4 bg-gray-600">
+      <div className="flex flex-row bg-slate-800 h-screen top-14 left-0 right-0 overflow-auto">
+        <div className="flex flex-col h-screen w-3/4 bg-gray-600 mt-14">
           <Posts
             state={state}
             setState={setState}
@@ -35,7 +35,7 @@ setNewPost(refreshData)
             newPost={newPost}
           />
         </div>
-        <div className="bg-green-600 w-1/4">
+        <div className="bg-green-600 w-1/4 mt-8 z-0">
           <SearchBook updateSearchResults={updateSearchResults} />
           <Form state={state} setState={setState} refreshPost={refreshPost} />
         </div>

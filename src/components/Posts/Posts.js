@@ -27,13 +27,13 @@ setPosts((p)
 },[newPost]) */
 
   return (<>
-  {(!searchResults)?(<div className="flex flex-row">
+  {(!searchResults)?(<div className="flex flex-wrap">
   {posts.map((post) => (
     <div>
       <Post post={post} setState={setState} state={state} />
     </div>
   ))}
-</div>):(<div className="flex flex-row">
+</div>):(<div className="flex flex-wrap">
 {searchResults.map((post) => (
   <div>
     <Post post={post} setState={setState} state={state} />
