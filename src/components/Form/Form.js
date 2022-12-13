@@ -16,7 +16,8 @@ const Form = ({state, setState, refreshPost}) => {
     const handleSubmit = async (e) => {
       e.preventDefault()
       if(!currentId){
-        addBook(bookData).then(()=>{
+        addBook(bookData).then((temp)=>{
+          refreshPost(temp)
           clear()
           console.log(bookData);
         })
@@ -47,7 +48,7 @@ const Form = ({state, setState, refreshPost}) => {
 
   return (
     <div className="w-full max-w-xs">
-      <h3>{currentId?"Edit the":"Add a"} Book</h3>
+      <h3 className='bg-white p-5'><strong>{currentId?"Edit the":"Add a"} Book</strong></h3>
   <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
     <div className="mb-4">
       <label className="block text-gray-700 text-sm font-bold mb-2" for="bookname">
@@ -87,9 +88,9 @@ const Form = ({state, setState, refreshPost}) => {
       
     </div>
   </form>
-  <p className="text-center text-gray-500 text-xs">
+  {/* <p className="text-center text-gray-500 text-xs">
     &copy;2020 Acme Corp. All rights reserved.
-  </p>
+  </p> */}
 </div>
   )
 }
